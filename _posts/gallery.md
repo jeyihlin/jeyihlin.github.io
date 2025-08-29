@@ -5,7 +5,7 @@ permalink: /gallery/
 # ↓ Edit your images here
 images:
   - src: /assets/art/work1.jpg
-    title: "Forest Reflection"
+    title: "1"
     desc: "Oil on canvas, 2025"
   - src: /assets/art/work2.jpg
     title: "Blue Pond"
