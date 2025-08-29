@@ -22,3 +22,7 @@ Below is a list of your posts:
     </li>
   {% endfor %}
 </ul>
+
+nav: 
+  - name: Gallery
+    link: /gallery/
