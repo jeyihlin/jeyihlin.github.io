@@ -5,3 +5,12 @@ plugins:
   - jekyll-remote-theme
 
 author: Jeff Lin
+
+
+nav:
+  - name: Home
+    link: /
+  - name: Gallery
+    link: /gallery/
+  - name: About
+    link: /about
