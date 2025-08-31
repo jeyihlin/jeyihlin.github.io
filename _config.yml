@@ -1,16 +1,23 @@
-title: My Blog
-description: Built with GitHub Pages + Jekyll
-remote_theme: pages-themes/cayman@v0.2.0
-plugins:
-  - jekyll-remote-theme
-
+title: "HomeOne"
+description: "Memory"
+url: "https://jeyihlin.github.io"   # exact production URL
+baseurl: ""                          # User site MUST be empty string
+theme: minima                        # keep simple until build is green
 author: Jeff Lin
 
+# (optional but helpful)
+timezone: Asia/Taipei
+permalink: /:categories/:year/:month/:day/:title/
+markdown: kramdown
 
-nav:
-  - name: Home
-    link: /
-  - name: Gallery
-    link: /gallery/
-  - name: About
-    link: /about
+# Only enable plugins AFTER we get a clean build.
+# plugins:
+#   - jekyll-feed
+#   - jekyll-sitemap
+
+# Keep junk out of Git
+exclude:
+  - node_modules
+  - _site
+  - .jekyll-cache
+  - .sass-cache
