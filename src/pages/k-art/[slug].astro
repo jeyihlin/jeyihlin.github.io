@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const images = [
+  '07DC317D-F71D-4B49-9C3B-C96152D0ACFA.JPG',
+  '0F410B3D-E8D6-4254-8CA6-52085126661E.JPG',
+  '168551C4-7026-496A-AE0C-00146A655932.JPG',
+  '360171F9-C62A-4F81-9FE5-0B55A13B3953.JPG',
+  '4B36443A-E38E-485F-8B18-2D88A056F32E.JPG',
+  '4C885CBC-282F-47A5-B0B6-D20416AC9891.JPG',
+  '6739B540-8BCB-4B5F-9570-C1B248699A3E.JPG',
+  '78F403A6-E2F5-4F72-A088-2CAD6293ABFB.JPG',
+  '8F0F3B91-F405-49DA-B181-838D5A95A93E.JPG',
+  '9BBC305F-C005-4D5B-9EF7-8D685B83C0B8.JPG',
+  'A54A57C5-DFD6-4991-A317-DEEF91B184FC.JPG',
+  'AFC922E0-922B-4A72-B349-4165183674F2.JPG',
+  'B801F568-4C39-44F6-8602-1D6A21B3DD52.JPG',
+  'B9AAC56D-02F5-4940-A6A2-CD1A20A3C917.JPG',
+  'E1712EE2-1B4A-41C2-BB2B-7B821D11D175.JPG',
+  'E3DB8F8A-BB2A-450D-A189-42EF81B8D371.JPG',
+  'EA9F8112-23F1-4C1E-96F0-CB1E345D9607.JPG',
+  'FFE41A94-62B2-49AE-8D9F-46B82D6FB4BF.JPG',
+  'IMG_0612.JPG',
+  'IMG_1067.JPG',
+];
+
+export function getStaticPaths() {
+  const imgs = [
+    '07DC317D-F71D-4B49-9C3B-C96152D0ACFA.JPG',
+    '0F410B3D-E8D6-4254-8CA6-52085126661E.JPG',
+    '168551C4-7026-496A-AE0C-00146A655932.JPG',
+    '360171F9-C62A-4F81-9FE5-0B55A13B3953.JPG',
+    '4B36443A-E38E-485F-8B18-2D88A056F32E.JPG',
+    '4C885CBC-282F-47A5-B0B6-D20416AC9891.JPG',
+    '6739B540-8BCB-4B5F-9570-C1B248699A3E.JPG',
+    '78F403A6-E2F5-4F72-A088-2CAD6293ABFB.JPG',
+    '8F0F3B91-F405-49DA-B181-838D5A95A93E.JPG',
+    '9BBC305F-C005-4D5B-9EF7-8D685B83C0B8.JPG',
+    'A54A57C5-DFD6-4991-A317-DEEF91B184FC.JPG',
+    'AFC922E0-922B-4A72-B349-4165183674F2.JPG',
+    'B801F568-4C39-44F6-8602-1D6A21B3DD52.JPG',
+    'B9AAC56D-02F5-4940-A6A2-CD1A20A3C917.JPG',
+    'E1712EE2-1B4A-41C2-BB2B-7B821D11D175.JPG',
+    'E3DB8F8A-BB2A-450D-A189-42EF81B8D371.JPG',
+    'EA9F8112-23F1-4C1E-96F0-CB1E345D9607.JPG',
+    'FFE41A94-62B2-49AE-8D9F-46B82D6FB4BF.JPG',
+    'IMG_0612.JPG',
+    'IMG_1067.JPG',
+  ];
+  return imgs.map((filename) => ({
+    params: { slug: encodeURIComponent(filename) },
+    props: { filename },
+  }));
+}
+
+const { filename } = Astro.props;
+const index = images.findIndex((f) => f === filename);
+const prev = index > 0 ? encodeURIComponent(images[index - 1]) : null;
+const next = index < images.length - 1 ? encodeURIComponent(images[index + 1]) : null;
+---
+<BaseLayout title={`K-art · ${index + 1}`}>
+  <div class="art-nav-top">
+    <a href="/k-art">← Back to K-art</a>
+    <span class="counter">{index + 1} / {images.length}</span>
+  </div>
+
+  <div class="art-full">
+    <img src={`/k-art/${filename}`} alt={filename} />
+  </div>
+
+  <div class="art-nav-bottom">
+    {prev ? <a href={`/k-art/${prev}`}>← Prev</a> : <span />}
+    {next ? <a href={`/k-art/${next}`}>Next →</a> : <span />}
+  </div>
+</BaseLayout>
+
+<style>
+  .art-nav-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  .art-nav-top a { color: var(--teal); text-decoration: none; }
+  .art-nav-top a:hover { text-decoration: underline; }
+  .counter { font-size: 0.85rem; }
+
+  .art-full {
+    text-align: center;
+  }
+  .art-full img {
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    object-fit: contain;
+  }
+
+  .art-nav-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+  }
+  .art-nav-bottom a { color: var(--teal); text-decoration: none; }
+  .art-nav-bottom a:hover { text-decoration: underline; }
+</style>
