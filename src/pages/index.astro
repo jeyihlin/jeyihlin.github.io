@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Home">
+  <!-- Hero -->
+  <section>
+    <p class="tag">Nephrologist · Taiwan</p>
+    <br />
+    <h1>Clinical work,<br />continuous learning,<br /><em>life in between.</em></h1>
+    <p style="margin-top: 1.5rem; max-width: 520px;">
+      This site is my external brain — a place to organize what I'm learning,
+      document cases worth sharing, and occasionally write about running, travel, and family.
+    </p>
+  </section>
+
+  <!-- Knowledge section -->
+  <section class="section">
+    <h3>Knowledge Base</h3>
+    <div class="card-grid">
+      <a href="/knowledge" class="card">
+        <p class="card-label">Nephrology</p>
+        <h4>Clinical notes & literature</h4>
+        <p>CKD, AKI, dialysis, electrolytes</p>
+      </a>
+      <a href="/knowledge" class="card">
+        <p class="card-label">Critical Care</p>
+        <h4>ICU Dialysis</h4>
+        <p>CRRT, hemodynamics, dosing</p>
+      </a>
+      <a href="/knowledge" class="card">
+        <p class="card-label">Patient Education</p>
+        <h4>衛教資料</h4>
+        <p>繁體中文衛教素材</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Blog section -->
+  <section class="section">
+    <h3>Recent Writing</h3>
+    <ul class="post-list">
+      <li>
+        <a href="/blog">Start here: about this site</a>
+        <span class="post-date">2025</span>
+      </li>
+    </ul>
+    <p style="margin-top: 1.5rem; font-size: 0.9rem;">
+      Writing on <a href="/blog">running</a>, <a href="/blog">travel</a>, and <a href="/blog">family</a> — personal and unhurried.
+    </p>
+  </section>
+</BaseLayout>
