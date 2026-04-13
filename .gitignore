@@ -1,0 +1,12 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# macOS
+.DS_Store
+
+# Local source assets (images uploaded to public/ instead)
+K_art/
