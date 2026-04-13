@@ -48,15 +48,15 @@ export function getStaticPaths() {
     'IMG_1067.JPG',
   ];
   return imgs.map((filename) => ({
-    params: { slug: encodeURIComponent(filename) },
+    params: { slug: filename.replace(/\.[^.]+$/, '') },
     props: { filename },
   }));
 }
 
 const { filename } = Astro.props;
 const index = images.findIndex((f) => f === filename);
-const prev = index > 0 ? encodeURIComponent(images[index - 1]) : null;
-const next = index < images.length - 1 ? encodeURIComponent(images[index + 1]) : null;
+const prev = index > 0 ? images[index - 1].replace(/\.[^.]+$/, '') : null;
+const next = index < images.length - 1 ? images[index + 1].replace(/\.[^.]+$/, '') : null;
 ---
 <BaseLayout title={`K-art · ${index + 1}`}>
   <div class="art-nav-top">

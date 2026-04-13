@@ -32,7 +32,7 @@ const images = [
 
   <div class="art-grid">
     {images.map((filename) => {
-      const slug = encodeURIComponent(filename);
+      const slug = filename.replace(/\.[^.]+$/, '');
       return (
         <a href={`/k-art/${slug}`} class="art-thumb">
           <img src={`/k-art/${filename}`} alt={filename} loading="lazy" />
